@@ -12,7 +12,22 @@ import { Spin, Form, Input, Button, message } from 'antd';
 const FormItem = Form.Item;
 
 /* 以类的方式创建一个组件 */
-class Login extends Component {
+const mapStateToProps = (state, ownProps) => {
+    let { Common, Login } = state;
+    return {
+        loading: Common.loading,
+        loginInfo: Login.loginInfo
+    }
+};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    actions: bindActionCreators({ initialState, goLogin }, dispatch)
+});
+
+
+
+@Form.create()
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Login extends Component {
     constructor(props) {
     	super(props);
     	this.state = {
@@ -99,23 +114,3 @@ class Login extends Component {
 		);
 	}
 }
-
-const LoginForm = Form.create()(Login);
-
-// 将 store 中的数据作为 props 绑定到 LoginForm 上
-const mapStateToProps = (state, ownProps) => {
-    let { Common, Login } = state;
-    return {
-        loading: Common.loading,
-        loginInfo: Login.loginInfo
-    }
-}
-
-// 将 action 作为 props 绑定到 Product 上。
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    actions: bindActionCreators({ initialState, goLogin }, dispatch)
-});
-
-const Main = connect(mapStateToProps, mapDispatchToProps)(LoginForm); // 连接redux
-
-export default Main;

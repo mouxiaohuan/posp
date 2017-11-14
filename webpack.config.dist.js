@@ -92,7 +92,7 @@ module.exports = {
             filename: '../index.html', //生成的html存放路径，相对于（比如前面配置的BUILD_PATH是“build/dist”,即index.html会生成到build下，其他文件会打包到build/dist下）
            // template: './src/template/index.html', //html模板路径
             bundleName: bundleConfig.bundle.js,
-            favicon: './favicon.ico',
+           // favicon: './favicon.ico',
             inject: 'body', // 是否将js放在body的末尾
             hash: false, // 是否为本页面所有资源文件添加一个独特的hash值
         }),
