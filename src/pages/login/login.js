@@ -80,9 +80,6 @@ export default class Login extends Component {
 	render() {
         const { loading, loginInfo, form } = this.props;
         const getFieldDecorator = form.getFieldDecorator;
-        console.log("sssssssssssssssssssssssssssssssss")
-        console.log(loginInfo)
-        console.log("sssssssssssssssssssssssssssssssss")
 		return (
 		<div className="login-container">	
 			<div className="login-form">
