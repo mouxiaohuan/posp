@@ -2,8 +2,8 @@
 import React, {Component, PropTypes} from 'react'; // react核心
 import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from 'react-router'; // 创建route所需
 import {Config} from '../help/config';
-import layout from '../layout/layout'; // 布局界面
-import login from '../pages/login/login'; // 登录界面
+import layout from '../component/layout/layout'; // 布局界面
+import login from '../containers/login/login'; // 登录界面
 
 class Roots extends Component {
 	render() {
@@ -17,14 +17,14 @@ class Roots extends Component {
 
 const home = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../pages/home/homeIndex').default)
+        cb(null, require('../containers/home/homeIndex').default)
     }, 'home');
 }
 
 // 组件一
 const oneui = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../pages/ui/oneIndex').default)
+        cb(null, require('../containers/ui/oneIndex').default)
     }, 'oneui');
 }
 
@@ -32,7 +32,7 @@ const oneui = (location, cb) => {
 // 组件二
 const twoui = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../pages/ui/twoIndex').default)
+        cb(null, require('../containers/ui/twoIndex').default)
     }, 'twoui');
 }
 

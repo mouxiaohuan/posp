@@ -26,9 +26,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+
+
 // 代理服务器
 app.use('/common', proxyMiddleware({
-    target: 'http://admin.sosout.com',
+    target: 'http://q702-qappdeve-1:802',
     changeOrigin: true
 }));
 
