@@ -56,7 +56,7 @@ export class Lmenu extends Component {
                             if(value.children&&value.children.length!==0){
                                 defaultKey.push(value.children[0].id);
                                 value.children.map((value, index) => {
-                                	let temp=<Menu.Item key={value.id}><Link to="oneui">{value.name}</Link></Menu.Item>
+                                	let temp=<Menu.Item key={value.id}><Link to={value.url}>{value.name}</Link></Menu.Item>
                                     tempThirdArray.push(temp)
 								})
 							}

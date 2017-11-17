@@ -11,7 +11,7 @@ import styles from './style/login.less';
 import { Spin, Form, Input, Button, message } from 'antd';
 const FormItem = Form.Item;
 
-/* 以类的方式创建一个组件 */
+/* 登录 */
 const mapStateToProps = (state, ownProps) => {
     let { Common, Login } = state;
     return {

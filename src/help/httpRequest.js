@@ -10,7 +10,9 @@ export function get(url,params) {
         },
         data:params,
 
-    })
+        }).catch((error)=> {
+            console.log('error',error);
+        });
 }
 export function post(url,params){
 
@@ -21,6 +23,7 @@ export function post(url,params){
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         data:params,
-
-    })
+        }).catch((error)=> {
+            console.log('error',error);
+        });
 }

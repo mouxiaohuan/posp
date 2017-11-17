@@ -12,29 +12,26 @@ class Roots extends Component {
 		);
 	}
 }
-
-// const history = process.env.NODE_ENV !== 'production' ? browserHistory : hashHistory;
-
 const home = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('../pages/home/homeIndex').default)
     }, 'home');
-}
+};
 
-// 组件一
-const oneui = (location, cb) => {
+//database
+const bankManage = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../pages/ui/oneIndex').default)
-    }, 'oneui');
-}
+        cb(null, require('../pages/database/bankManage').default)
+    }, 'bankManage');
+};
 
-
-// 组件二
-const twoui = (location, cb) => {
+const paramManage = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../pages/ui/twoIndex').default)
-    }, 'twoui');
-}
+        cb(null, require('../pages/database/paramManage').default)
+    }, 'paramManage');
+};
+
+
 
 // 登录验证
 const requireAuth = (nextState, replace) => {
@@ -51,8 +48,8 @@ const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
 			<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
-			<Route path="oneui" getComponent={oneui} onEnter={requireAuth} />
-			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
+			<Route path="/bankManage/toTab" getComponent={bankManage} onEnter={requireAuth} />
+			<Route path="/paramManage/toTab" getComponent={paramManage} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home

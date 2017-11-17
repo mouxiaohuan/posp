@@ -55,21 +55,12 @@ export const goLogin = (params) => {
         });
 
 
-
-
-
         /*测试阶段跳过登录*/
         dispatch(loading(false));
         dispatch(resLogin("test"));
         Config.localItem(Config.localKey.userToken, (new Date()).getTime()); // 模拟登录成功返回的Token
         browserHistory.push('/home');
 
-
-
-
-
-
-
-
     }
-} 
+};
+
